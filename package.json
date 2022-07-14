@@ -2,18 +2,33 @@
   "name": "graphql-server",
   "version": "1.0.0",
   "description": "graphQL turtorial",
-  "main": "app.js",
+  "main": "src/app.js",
   "type": "module",
   "scripts": {
+    "prepare": "husky install",
+    "start": "nodemon --inspect src/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
+  "lint-staged": {
+    "\"src/**/*.{json,js}\"": "prettier --single-quote --trailing-comma all --write"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
   "dependencies": {
     "apollo-server-express": "^3.10.0",
     "express": "^4.18.1",
     "graphql": "^16.5.0",
-    "mongoose": "^6.4.4"
+    "mongoose": "^6.4.4",
+    "module-alias": "^2.2.2",
+    "mongoose-delete": "^0.5.4",
+    "mongoose-sequence": "^5.3.1",
+    "mongoose-slug-generator": "^1.0.4",
+    "method-override": "^3.0.0"
   },
   "devDependencies": {
     "husky": "^8.0.1",
